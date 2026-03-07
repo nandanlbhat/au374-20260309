@@ -1,0 +1,10 @@
+---
+- name: play to say hello world
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: task to say hello world
+      ansible.builtin.debug:
+        msg: hello world
+...
