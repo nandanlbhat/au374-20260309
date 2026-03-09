@@ -1,0 +1,13 @@
+---
+- name: create a tmp file
+  hosts: servera
+  gather_facts: false
+
+  tasks:
+    - name: create a file in /tmp of 1KiB size
+      community.general.filesize:
+        path: /tmp/tmpfile.bin
+        size: 1 KiB
+        source: /dev/urandom
+
+...
