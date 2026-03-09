@@ -7,5 +7,5 @@
   tasks:
     - name: task to say hello world
       ansible.builtin.debug:
-        msg: hello world
+        msg: hi world
 ...

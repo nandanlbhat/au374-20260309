@@ -1,0 +1,9 @@
+---
+- name: show facts for localhost
+  hosts: localhost
+
+  tasks:
+    - name: display the facts
+      ansible.builtin.debug:
+        var: ansible_facts
+...
