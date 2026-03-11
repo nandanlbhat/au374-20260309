@@ -1,0 +1,14 @@
+---
+- name: Show desktop hostname
+  hosts: desktop
+  gather_facts: false
+
+  tasks:
+    - name: get the hostname
+      ansible.builtin.command: hostname
+      register: command_hostname_out
+
+    - name: show the hostname
+      ansible.builtin.debug:
+        var: command_hostname_out
+...

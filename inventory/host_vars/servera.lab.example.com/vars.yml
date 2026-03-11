@@ -1,0 +1,2 @@
+---
+myvar: "from inventory/host_vars/servera.lab.example.com/var.yml"

@@ -1,0 +1,11 @@
+---
+- name: Show an inventory variable
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Show the value of variable called myvar
+      ansible.builtin.debug:
+        #var: myvar
+        msg: "{{ myvar }} is the value of myvar variable"
+...

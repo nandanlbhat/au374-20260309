@@ -1,0 +1,22 @@
+all:
+  children:
+    ungrouped:
+      hosts:
+        workstation.lab.example.com:
+          #myvar: workstation
+    servers-a-and-b:
+      children:
+        servera:
+          hosts:
+            servera.lab.example.com:
+          #vars:
+          #  myvar: servera
+        serverb:
+          hosts:
+            serverb.lab.example.com:
+    allservers:
+      hosts:
+        server[a:f].lab.example.com:
+      #vars:
+        #myvar: allservers
+      

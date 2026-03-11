@@ -1,0 +1,20 @@
+desktop ansible_host="workstation.lab.example.com"
+
+[servera]
+servera.lab.example.com
+
+[servera:vars]
+myvar="from inventory file"
+
+[serverb]
+serverb.lab.example.com
+
+[servers-a-and-b:children]
+servera
+serverb
+
+[allservers]
+server[a:f].lab.example.com
+
+[allservers:vars]
+allserversvara=allserversvaluea

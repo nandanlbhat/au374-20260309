@@ -1,0 +1,5 @@
+---
+# tasks file for student.testrole
+- name: Show value of a variable
+  ansible.builtin.debug:
+    var: myvar

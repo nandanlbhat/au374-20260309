@@ -1,0 +1,20 @@
+---
+- name: Try output of a variable in a role
+  hosts: servera
+  gather_facts: false
+
+  vars:
+    myvar: "from the playbook"
+
+  vars_files:
+    - vars.yml
+
+#  roles:
+#    - role: student.testrole
+  tasks:
+    - name: import a role
+      ansible.builtin.import_role:
+        name: student.testrole
+      vars:
+        myvar: "from task spec"
+...

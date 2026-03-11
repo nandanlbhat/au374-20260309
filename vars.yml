@@ -1,0 +1,2 @@
+---
+myvar: "from vars.yml in project_root"
