@@ -1,0 +1,25 @@
+---
+- name: delegate a task
+  hosts: allservers
+
+  tasks:
+    - name: run the hostname command
+      ansible.builtin.command: hostname
+      when: inventory_hostname == 'servera.lab.example.com'
+      delegate_to: serverb.lab.example.com
+      register: cmd_hostname_1_out
+
+    - name: run the hostname command
+      ansible.builtin.command: hostname
+      when: inventory_hostname != 'servera.lab.example.com'
+      register: cmd_hostname_2_out
+
+    - name: output 1
+      ansible.builtin.debug:
+        var: cmd_hostname_1_out
+
+    - name: output 2
+      ansible.builtin.debug:
+        var: cmd_hostname_2_out
+
+...
