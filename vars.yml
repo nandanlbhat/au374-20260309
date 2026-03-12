@@ -1,2 +1,15 @@
 ---
 myvar: "from vars.yml in project_root"
+textvar: |
+         Filters let you transform JSON data into YAML data, 
+         split a URL to extract the hostname, get the SHA1 
+         hash of a string, add or multiply integers, and much 
+         more. You can use the Ansible-specific filters 
+         documented here to manipulate your data, or use any 
+         of the standard filters shipped with Jinja2 - see 
+         the list of built-in filters in the official Jinja2 
+         template documentation. You can also use Python 
+         methods to transform data. You can create custom 
+         Ansible filters as plugins, though we generally 
+         welcome new filters into the ansible-core repo so 
+         everyone can use them.

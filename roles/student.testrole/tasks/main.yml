@@ -3,3 +3,5 @@
 - name: Show value of a variable
   ansible.builtin.debug:
     var: myvar
+  changed_when: true
+  notify: roles_handler

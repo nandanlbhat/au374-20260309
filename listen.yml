@@ -1,0 +1,24 @@
+---
+- name: demo handler listening
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: notify a handler
+      ansible.builtin.debug:
+        msg: trigger a handler 
+      notify: absent_handler
+      changed_when: true
+
+  handlers:
+    - name: handler_1
+      ansible.builtin.debug:
+        msg: this is handler 1
+      listen: absent_handler
+
+    - name: handler_2
+      ansible.builtin.debug:
+        msg: this is handler 2
+      listen: absent_handler
+
+...

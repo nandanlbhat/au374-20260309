@@ -1,0 +1,42 @@
+---
+- name: Try order of execution
+  hosts: localhost
+  gather_facts: false
+
+  post_tasks:
+    - name: post_task
+      ansible.builtin.debug:
+        msg: this is a post_task
+      changed_when: true
+      notify: post_tasks_handler
+
+  handlers:
+    - name: pre_tasks_handler
+      ansible.builtin.debug:
+        msg: this is the pre_tasks_handler
+
+    - name: tasks_handler
+      ansible.builtin.debug:
+        msg: this is the tasks_handler
+
+    - name: post_tasks_handler
+      ansible.builtin.debug:
+        msg: this is the post_tasks_handler
+  
+  tasks:
+    - name: task
+      ansible.builtin.debug:
+        msg: this is a task
+      changed_when: true
+      notify: tasks_handler
+
+  roles:
+    - role: student.testrole
+
+  pre_tasks:
+    - name: pre_task
+      ansible.builtin.debug:
+        msg: this is a pre_task
+      changed_when: true
+      notify: pre_tasks_handler
+

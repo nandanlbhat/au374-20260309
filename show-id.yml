@@ -1,0 +1,27 @@
+---
+- name: Show the user id
+  hosts: servera
+  gather_facts: false
+
+  tasks:
+    - block:
+      - name: get the id by running the command
+        ansible.builtin.command: id
+        register: command_id_out
+
+      - name: get the list of files in root user's home directory
+        ansible.builtin.command: ls /root
+        register: command_ls_out
+
+      #become: true
+
+    - name: show the id from previous task
+      ansible.builtin.debug:
+        var: command_id_out
+
+    - name: show the files in root's home directory
+      ansible.builtin.debug:
+        var: command_ls_out
+
+
+...

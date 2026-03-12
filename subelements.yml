@@ -1,0 +1,40 @@
+- name: show var structure as it is needed for example to make sense
+  hosts: localhost
+
+  vars:
+    users:
+      - name: alice
+        authorized:
+          - /tmp/alice/onekey.pub
+          - /tmp/alice/twokey.pub
+        mysql:
+            password: mysql-password
+            hosts:
+              - "%"
+              - "127.0.0.1"
+              - "::1"
+              - "localhost"
+            privs:
+              - "*.*:SELECT"
+              - "DB1.*:ALL"
+        groups:
+          - wheel
+          - cdrom
+      - name: bob
+        authorized:
+          - /tmp/bob/id_rsa.pub
+        groups:
+          - audio
+          - ftp
+        mysql:
+            password: other-mysql-password
+            hosts:
+              - "db1"
+            privs:
+              - "*.*:SELECT"
+              - "DB2.*:ALL"
+  tasks:
+    - name: list groups for users that have them, don't error if groups key is missing
+      ansible.builtin.debug: 
+        var: item
+      loop: "{{ q('ansible.builtin.subelements', users, 'groups', {'skip_missing': True}) }}"

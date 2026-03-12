@@ -140,11 +140,11 @@ ansible-navigator:
 #   # Specify the user-interface mode
 #   mode: interactive
   mode: stdout
-#   playbook-artifact:
+  playbook-artifact:
 #     # Enable or disable the creation of artifacts for completed playbooks.
 #     # Note: not compatible with '--mode stdout' when playbooks require user
 #     # input
-#     enable: True
+    enable: False
 #     # Specify the path for the playbook artifact to replay
 #     replay: /tmp/test_artifact.json
 #     # Specify the name for artifacts created from completed playbooks. The

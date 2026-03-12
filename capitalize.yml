@@ -1,0 +1,13 @@
+---
+- name: Capitaliza a string
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    text_string: "red hat"
+
+  tasks:
+    - name: Capitalize a string
+      ansible.builtin.debug:
+        msg: "{{ text_string | capitalize }}"      
+...

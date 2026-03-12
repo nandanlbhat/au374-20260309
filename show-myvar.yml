@@ -3,9 +3,13 @@
   hosts: all
   gather_facts: false
 
+  vars_files:
+    - vars.yml
+
   tasks:
     - name: Show the value of variable called myvar
       ansible.builtin.debug:
+        var: textvar
         #var: myvar
-        msg: "{{ myvar }} is the value of myvar variable"
+#        msg: "{{ myvar }} is the value of myvar variable"
 ...

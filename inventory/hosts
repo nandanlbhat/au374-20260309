@@ -9,7 +9,7 @@ myvar="from inventory file"
 [serverb]
 serverb.lab.example.com
 
-[servers-a-and-b:children]
+[servers_a_and_b:children]
 servera
 serverb
 

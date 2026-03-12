@@ -9,12 +9,15 @@
   vars_files:
     - vars.yml
 
-#  roles:
-#    - role: student.testrole
-  tasks:
-    - name: import a role
-      ansible.builtin.import_role:
-        name: student.testrole
-      vars:
-        myvar: "from task spec"
+  roles:
+    - role: student.testrole
+      become: true
+
+#tasks:
+  #  - name: import a role
+  #    ansible.builtin.import_role:
+  #      name: student.testrole
+  #    vars:
+  #      myvar: "from task spec"
+
 ...

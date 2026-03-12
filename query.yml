@@ -1,0 +1,14 @@
+---
+- name: try a lookup
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    enrollments: "{{ query('ansible.builtin.file', '90512106-enrollments.csv', 'ansible.cfg') }}"
+
+  tasks:
+    - name: output a read file
+      ansible.builtin.debug:
+        var: enrollments
+
+...
