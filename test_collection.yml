@@ -1,0 +1,8 @@
+---
+- name: try using a collection
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - role: student.test_collection.helloworld
+...

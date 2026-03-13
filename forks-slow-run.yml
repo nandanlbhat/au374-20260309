@@ -1,0 +1,23 @@
+---
+- name: slow run to demonstrate effect of forks
+  hosts: allservers
+  gather_facts: false
+
+  serial: 2
+  max_fail_percentage: 100
+
+  tasks:
+    - name: task 1
+      ansible.builtin.command: sleep 2
+      changed_when: false
+
+    - name: task 2
+      ansible.builtin.command: sleep 2
+      changed_when: false
+      failed_when: inventory_hostname == 'serverc.lab.example.com' or  inventory_hostname == 'serverd.lab.example.com'
+      #failed_when: inventory_hostname == 'serverc.lab.example.com' #or  inventory_hostname == 'serverd.lab.example.com'
+
+    - name: task 3
+      ansible.builtin.command: sleep 2
+      changed_when: false
+
